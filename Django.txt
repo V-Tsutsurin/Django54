@@ -1,0 +1,11 @@
+1. django-admin startproject [навзание проекта]
+
+2. python manage.py startapp [навзание приложения]
+
+3. INSTALLED_APPS = [
+	...
+    'skills.apps.SkillsConfig',
+    'blog.apps.BlogConfig',
+]
+
+4. pip install pillow
