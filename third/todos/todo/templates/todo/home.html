@@ -1,0 +1,8 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+<h1>Система для обслуживания клиентов</h1>
+<p>Развивайте свой бизнес с помощью продвинутой, но простой в использовании платформы</p>
+<form action="{% url 'loginuser' %}" class="center">
+  <button class="btn">Начать</button>
+</form>
+{% endblock %}
