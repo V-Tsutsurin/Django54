@@ -9,3 +9,13 @@
 ]
 
 4. pip install pillow
+
+5. python manage.py makemigrations
+6. python manage.py migrate
+
+7. python manage.py createsuperuser
+
+models.CASCADE - если пользователь будет удален то удаляться и все его задачи
+models.PROTECTED - запрет на удаление пользователя пока у него есть задачи
+models.SET_NULL - задачи остануться в БД, даже при удалении пользователя, но значение в поле user измениться на None
+models.SET_DEFAULT- задачи остануться в БД, даже при удалении пользователя, но значение в поле user измениться на значени задааное по умалчанию
