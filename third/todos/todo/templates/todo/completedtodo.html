@@ -7,13 +7,14 @@
     <li>
         <a href="{% url 'viewtodo' todo.id %}">
         {% if todo.important %}
-       <b>{{ todo.title }}</b>
+        <b>{{ todo.title }}</b>
         {% else %}
         {{ todo.title }}
         {% endif %}
         {% if todo.memo %}
-        -{{ todo.memo }}
+        - {{ todo.memo }}
         {% endif %}
+          {{ todo.date_complited|date:'M j Y H:i' }}
         </a>
     </li>
     {% endfor %}
