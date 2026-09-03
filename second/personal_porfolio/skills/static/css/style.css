@@ -12,12 +12,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
-.block{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-bottom: 60px;
-}
+
 .element, .count{
     background-color: lightyellow;
     /* flex-basis: 360px; */
