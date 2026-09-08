@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Project
+from .forms import ProjectForm
 
 # Create your views here.
 def projects(request):
@@ -10,3 +11,33 @@ def projects(request):
     }
 
     return render(request, 'projects/projects.html', context)
+
+def project(request, pk):
+    project_obj = Project.objects.get(id=pk)
+    # form = RevieForm()
+    #
+    # if request.method == "POST":
+    #     form = RevieForm(request.POST)
+    #     review = form.save(commit=False)
+    #     review.project = project_obj
+    #     review.owner = request.user.profile
+    #     review.save()
+    #
+    #     project_obj.get_vote_count()
+    #     return redirect(request, 'Your review was successfully submited!')
+
+    return render(request, 'projects/single-project.html', {'project':project_obj})
+
+def create_project(request):
+    form = ProjectForm()
+
+    if request.method == "POST":
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            form.save()
+            return redirect('projects')
+
+
+    context = {'form': form}
+    return render(request, "projects/form-template.html", context)
